@@ -110,7 +110,7 @@
 				TargetAttributes = {
 					3C01E3491C95921300B583C8 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 6SUN97QQJZ;
+						DevelopmentTeam = 9KZD7Y4SX6;
 					};
 				};
 			};
@@ -264,12 +264,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: TP-LINK TECHNOLOGIES CO.,LTD.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "BullsEye-OC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.tplink.BullsEye-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d47e54e5-8d3b-4de5-9761-d45d385360a3";
 			};
 			name = Debug;
 		};
@@ -277,12 +278,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: TP-LINK TECHNOLOGIES CO.,LTD.";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "BullsEye-OC/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.tplink.BullsEye-OC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d47e54e5-8d3b-4de5-9761-d45d385360a3";
 			};
 			name = Release;
 		};
@@ -305,6 +307,7 @@
 				3C01E3631C95921300B583C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

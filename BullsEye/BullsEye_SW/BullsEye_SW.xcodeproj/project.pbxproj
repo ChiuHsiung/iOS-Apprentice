@@ -12,6 +12,8 @@
 		3C01E3171C9590CA00B583C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C01E3151C9590CA00B583C8 /* Main.storyboard */; };
 		3C01E3191C9590CA00B583C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C01E3181C9590CA00B583C8 /* Assets.xcassets */; };
 		3C01E31C1C9590CA00B583C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C01E31A1C9590CA00B583C8 /* LaunchScreen.storyboard */; };
+		3C5748D41C9667B600722851 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5748D31C9667B600722851 /* AboutViewController.swift */; };
+		3C57A8981C96AAF500722851 /* BullsEye.html in Resources */ = {isa = PBXBuildFile; fileRef = 3C57A8971C96AAF500722851 /* BullsEye.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		3C01E3181C9590CA00B583C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C01E31B1C9590CA00B583C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C01E31D1C9590CA00B583C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C5748D31C9667B600722851 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		3C57A8971C96AAF500722851 /* BullsEye.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BullsEye.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +58,10 @@
 		3C01E3101C9590CA00B583C8 /* BullsEye_SW */ = {
 			isa = PBXGroup;
 			children = (
+				3C57A8971C96AAF500722851 /* BullsEye.html */,
 				3C01E3111C9590CA00B583C8 /* AppDelegate.swift */,
 				3C01E3131C9590CA00B583C8 /* ViewController.swift */,
+				3C5748D31C9667B600722851 /* AboutViewController.swift */,
 				3C01E3151C9590CA00B583C8 /* Main.storyboard */,
 				3C01E3181C9590CA00B583C8 /* Assets.xcassets */,
 				3C01E31A1C9590CA00B583C8 /* LaunchScreen.storyboard */,
@@ -107,6 +113,30 @@
 			knownRegions = (
 				en,
 				Base,
+				bg,
+				cs,
+				de,
+				el,
+				es,
+				fr,
+				it,
+				ja,
+				ko,
+				nl,
+				pl,
+				"pt-BR",
+				"pt-PT",
+				pt,
+				ro,
+				ru,
+				sk,
+				th,
+				tr,
+				vi,
+				"zh-Hant-HK",
+				"zh-Hant-MO",
+				"zh-Hant-TW",
+				"zh-Hant",
 			);
 			mainGroup = 3C01E3051C9590CA00B583C8;
 			productRefGroup = 3C01E30F1C9590CA00B583C8 /* Products */;
@@ -124,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C01E31C1C9590CA00B583C8 /* LaunchScreen.storyboard in Resources */,
+				3C57A8981C96AAF500722851 /* BullsEye.html in Resources */,
 				3C01E3191C9590CA00B583C8 /* Assets.xcassets in Resources */,
 				3C01E3171C9590CA00B583C8 /* Main.storyboard in Resources */,
 			);
@@ -136,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C5748D41C9667B600722851 /* AboutViewController.swift in Sources */,
 				3C01E3141C9590CA00B583C8 /* ViewController.swift in Sources */,
 				3C01E3121C9590CA00B583C8 /* AppDelegate.swift in Sources */,
 			);
@@ -250,12 +282,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: TP Admin (FL3FR9SMM2)";
 				INFOPLIST_FILE = BullsEye_SW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.tplink.BullsEye-SW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d47e54e5-8d3b-4de5-9761-d45d385360a3";
 			};
 			name = Debug;
 		};
@@ -263,12 +297,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer: TP Admin (FL3FR9SMM2)";
 				INFOPLIST_FILE = BullsEye_SW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.tplink.BullsEye-SW";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "d47e54e5-8d3b-4de5-9761-d45d385360a3";
 			};
 			name = Release;
 		};
@@ -291,6 +327,7 @@
 				3C01E3221C9590CA00B583C8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

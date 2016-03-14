@@ -1,0 +1,53 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FE9BD5A0420483F8AC34A96556FAA0CADD7421AB",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "24f2589a-ed86-fd40-a3cd-9844b0a933ca++6099" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FE9BD5A0420483F8AC34A96556FAA0CADD7421AB" : 0,
+    "5681D761F3450CC293AA4D96300A21BDDBC3ACC5" : 0,
+    "D43F49EDB7B0A2E22A523E5EC2B58713E9107D74" : 0,
+    "24f2589a-ed86-fd40-a3cd-9844b0a933ca++6099" : 0,
+    "60F68E5DF41F01D631142CB958A20AB59217B085" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DADE3245-2E7F-404D-A424-C31BC868F912",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FE9BD5A0420483F8AC34A96556FAA0CADD7421AB" : "iOS-Apprentice\/",
+    "5681D761F3450CC293AA4D96300A21BDDBC3ACC5" : "SwiftApprenticeLearning\/",
+    "D43F49EDB7B0A2E22A523E5EC2B58713E9107D74" : "Some-note\/",
+    "24f2589a-ed86-fd40-a3cd-9844b0a933ca++6099" : "..\/tpMiFi",
+    "60F68E5DF41F01D631142CB958A20AB59217B085" : "TkinterTest\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "BullsEye",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "BullsEye\/BullsEye.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/zhuangqiuxiong%40tp-link.net@rdsvn.tp-link.net\/svn\/BA\/PC_APPS",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "24f2589a-ed86-fd40-a3cd-9844b0a933ca++6099"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhuangqiuxiong\/SwiftApprenticeLearning.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "5681D761F3450CC293AA4D96300A21BDDBC3ACC5"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhuangqiuxiong\/TkinterTest.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "60F68E5DF41F01D631142CB958A20AB59217B085"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhuangqiuxiong\/Some-note.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D43F49EDB7B0A2E22A523E5EC2B58713E9107D74"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/zhuangqiuxiong\/iOS-Apprentice.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FE9BD5A0420483F8AC34A96556FAA0CADD7421AB"
+    }
+  ]
+}
