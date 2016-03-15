@@ -8,9 +8,14 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController {
+class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var doneBarBtn: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
+    
+    override func viewDidLoad() {
+        self.textField.delegate = self
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -29,7 +34,7 @@ class AddItemViewController: UITableViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-    //MARK: Delegate
+    //MARK: Table view Delegate
     //“Return Value: An index-path object that confirms or alters the selected row. Return an NSIndexPath object other than indexPath if you want another cell to be selected. Return nil if you don't want the row selected.”
     
     //1. Return the same index-path you were given. This confirms that this row can be selected.
@@ -39,5 +44,25 @@ class AddItemViewController: UITableViewController {
         return nil//prevent any row to be selected
     }
     
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        
+        let oldText : NSString = textField.text!
+        let newText : NSString = oldText.stringByReplacingCharactersInRange(range, withString: string)
+        
+        if newText.length > 0{
+            self.doneBarBtn.enabled = true
+        }
+        else{
+            self.doneBarBtn.enabled = false
+        }
+        return true
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.textField.resignFirstResponder()
+        return true
+    }
 
 }
