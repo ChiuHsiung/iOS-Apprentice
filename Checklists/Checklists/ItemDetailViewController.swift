@@ -1,5 +1,5 @@
 //
-//  AddItemViewController.swift
+//  ItemDetailViewController.swift
 //  Checklists
 //
 //  Created by zhuangqiuxiong on 16/3/15.
@@ -8,13 +8,32 @@
 
 import UIKit
 
-class AddItemViewController: UITableViewController, UITextFieldDelegate {
+protocol ItemDetailViewControllerDelegate: class{
+    
+    func itemDetailViewControllerDidCancel(controller: ItemDetailViewController)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishAddingItem: ChecklistItem)
+    func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem: ChecklistItem)
+    
+}
+
+class ItemDetailViewController: UITableViewController, UITextFieldDelegate {
+    
+    weak var delegate: ItemDetailViewControllerDelegate?
     
     @IBOutlet weak var doneBarBtn: UIBarButtonItem!
     @IBOutlet weak var textField: UITextField!
     
+    var itemToEdit: ChecklistItem?
+    
     override func viewDidLoad() {
         self.textField.delegate = self
+        
+        if let item = itemToEdit{
+            self.navigationItem.title = "Edit Item"
+            self.textField.text = item.text
+            self.doneBarBtn.enabled = true
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -25,13 +44,30 @@ class AddItemViewController: UITableViewController, UITextFieldDelegate {
     
     @IBAction func cancel(sender: AnyObject) {
         
+        self.delegate?.itemDetailViewControllerDidCancel(self)
         self.navigationController?.popViewControllerAnimated(true)
         
     }
     
     @IBAction func done(sender: AnyObject) {
         
-        self.navigationController?.popViewControllerAnimated(true)
+        if let item = itemToEdit{
+            item.text = self.textField.text!
+            self.delegate?.itemDetailViewController(self, didFinishEditingItem: item)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
+        else
+        {
+            
+            let item = ChecklistItem()
+            item.text = self.textField.text!
+            item.checked = false
+            
+            self.delegate?.itemDetailViewController(self, didFinishAddingItem: item)
+            self.navigationController?.popViewControllerAnimated(true)
+
+        }
     }
     
     //MARK: Table view Delegate
