@@ -17,37 +17,16 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         self.items = [ChecklistItem]()
         
-        let row0item = ChecklistItem()
-        row0item.text = "Walk the dog"
-        row0item.checked = false
-        items.append(row0item)
-        
-        let row1item = ChecklistItem()
-        row1item.text = "Brush my teeth"
-        row1item.checked = true
-        items.append(row1item)
-        
-        let row2item = ChecklistItem()
-        row2item.text = "Learn iOS development"
-        row2item.checked = true
-        items.append(row2item)
-        
-        let row3item = ChecklistItem()
-        row3item.text = "Soccer practice"
-        row3item.checked = false
-        items.append(row3item)
-        
-        let row4item = ChecklistItem()
-        row4item.text = "Eat ice cream"
-        row4item.checked = true
-        items.append(row4item)
-        
         super.init(coder: aDecoder)
+        
+        self.loadChecklistItems()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        print(self.dataFilePath())
     }
 
     override func didReceiveMemoryWarning() {
@@ -101,6 +80,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
             
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        self.saveChecklistItems()
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -111,6 +92,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         
         tableView.deleteRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
         
+        self.saveChecklistItems()
     }
     
     //MARK: ItemDetailViewControllerDelegate
@@ -127,6 +109,8 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         let indexPath = NSIndexPath(forRow: newRowIndex, inSection: 0)
         let indexPaths = [indexPath]
         self.tableView.insertRowsAtIndexPaths(indexPaths, withRowAnimation: .Automatic)
+        
+        self.saveChecklistItems()
     }
     
     func itemDetailViewController(controller: ItemDetailViewController, didFinishEditingItem editItem: ChecklistItem)
@@ -140,6 +124,7 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
                 label.text = editItem.text
             }
         }
+        self.saveChecklistItems()
     }
     
     
@@ -164,6 +149,44 @@ class ChecklistViewController: UITableViewController, ItemDetailViewControllerDe
         }
         
         
+    }
+    
+    //MARK: Utility
+    func documentsDirectory() -> String {
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        return paths[0]
+        
+    }
+    
+    func dataFilePath() -> String {
+        
+        return (documentsDirectory() as NSString).stringByAppendingPathComponent("Checklists.plist")
+        
+    }
+    
+    //MARK: Sava data
+    func saveChecklistItems() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(items, forKey: "ChecklistItems")
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath(), atomically: true)
+    }
+    
+    //MARK: Load data
+    func loadChecklistItems() {
+        // 1
+        let path = dataFilePath()
+        // 2
+        if NSFileManager.defaultManager().fileExistsAtPath(path) {
+            // 3
+            if let data = NSData(contentsOfFile: path) {
+                let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+                self.items = unarchiver.decodeObjectForKey("ChecklistItems") as! [ChecklistItem]
+                unarchiver.finishDecoding()
+            }
+        }
     }
 
 }
