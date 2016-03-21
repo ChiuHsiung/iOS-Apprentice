@@ -8,19 +8,28 @@
 
 import UIKit
 
-class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate{
+class AllListsViewController: UITableViewController, ListDetailViewControllerDelegate, UINavigationControllerDelegate{
 
     var dataModel : DataModel!
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.navigationController?.delegate = self
+        
+        let index = NSUserDefaults.standardUserDefaults().integerForKey(UserDefaultsKey)
+        if index >= 0 && index < dataModel.lists.count
+        {
+            let checklist = dataModel.lists[index]
+            performSegueWithIdentifier("ShowChecklist", sender: checklist)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,8 +73,13 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: UserDefaultsKey)
+        NSUserDefaults.standardUserDefaults().synchronize()//保证set完之后马上同步保存
+        
         performSegueWithIdentifier("ShowChecklist", sender: self.dataModel.lists[indexPath.row])
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
     
     override func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
@@ -131,6 +145,18 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
                 
                 cell.textLabel!.text = editItem.name
             }
+        }
+        
+    }
+    
+    //MARK: Navigation controller delegate
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+        
+        //With just two equals signs, for objects such as view controllers, equality is tested by comparing the references, just like === would do. But technically speaking, === is more correct here than ==.
+        if viewController === self
+        {
+            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: UserDefaultsKey)
+            NSUserDefaults.standardUserDefaults().synchronize()//保证set完之后马上同步保存
         }
         
     }

@@ -8,15 +8,21 @@
 
 import UIKit
 
+let UserDefaultsKey = "ChecklistIndex"
+
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     let dataModel = DataModel()
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //注册出厂设置
+        self.registerDefaults()
         
         let navigationController = window!.rootViewController as! UINavigationController
         let controller = navigationController.viewControllers[0] as! AllListsViewController
@@ -57,6 +63,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.dataModel.saveChecklists()
     }
     
+    func registerDefaults() {
+            
+        let dictionary = [ UserDefaultsKey: -1 ]
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+    
+    }
     
 }
 
