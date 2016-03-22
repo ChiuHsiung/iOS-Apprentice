@@ -8,6 +8,9 @@
 
 import UIKit
 
+let ChecklistIndexKey = "ChecklistIndex"
+let FirstTimeKey = "FirstTime"
+
 class DataModel: NSObject {
     
     var lists = [Checklist]()
@@ -16,6 +19,13 @@ class DataModel: NSObject {
     {
         super.init()
         self.loadChecklists()
+        
+        //注册出厂设置
+        self.registerDefaults()
+        
+        //第一次运行处理
+        self.handleFirstTime()
+        
     }
     
     //MARK: Utility
@@ -53,6 +63,28 @@ class DataModel: NSObject {
                 self.lists = unarchiver.decodeObjectForKey("Checklists") as! [Checklist]
                 unarchiver.finishDecoding()
             }
+        }
+    }
+    
+    //MARK: 注册出厂设置
+    func registerDefaults() {
+        
+        let dictionary = [ ChecklistIndexKey: -1, FirstTimeKey: true]
+        NSUserDefaults.standardUserDefaults().registerDefaults(dictionary)
+        
+    }
+    
+    func handleFirstTime()
+    {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        let firstTime = userDefaults.boolForKey(FirstTimeKey)
+        if firstTime
+        {
+            let checklist = Checklist(name: "List")
+            lists.append(checklist)
+            NSUserDefaults.standardUserDefaults().setInteger(0, forKey: ChecklistIndexKey)
+            userDefaults.setBool(false, forKey: FirstTimeKey)
+            userDefaults.synchronize()
         }
     }
 

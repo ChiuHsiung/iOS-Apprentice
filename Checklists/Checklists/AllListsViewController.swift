@@ -24,7 +24,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         
         self.navigationController?.delegate = self
         
-        let index = NSUserDefaults.standardUserDefaults().integerForKey(UserDefaultsKey)
+        let index = NSUserDefaults.standardUserDefaults().integerForKey(ChecklistIndexKey)
         if index >= 0 && index < dataModel.lists.count
         {
             let checklist = dataModel.lists[index]
@@ -74,7 +74,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: UserDefaultsKey)
+        NSUserDefaults.standardUserDefaults().setInteger(indexPath.row, forKey: ChecklistIndexKey)
         NSUserDefaults.standardUserDefaults().synchronize()//保证set完之后马上同步保存
         
         performSegueWithIdentifier("ShowChecklist", sender: self.dataModel.lists[indexPath.row])
@@ -155,7 +155,7 @@ class AllListsViewController: UITableViewController, ListDetailViewControllerDel
         //With just two equals signs, for objects such as view controllers, equality is tested by comparing the references, just like === would do. But technically speaking, === is more correct here than ==.
         if viewController === self
         {
-            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: UserDefaultsKey)
+            NSUserDefaults.standardUserDefaults().setInteger(-1, forKey: ChecklistIndexKey)
             NSUserDefaults.standardUserDefaults().synchronize()//保证set完之后马上同步保存
         }
         
